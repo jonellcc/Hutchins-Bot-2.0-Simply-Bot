@@ -8,7 +8,7 @@ const chalk = require("chalk");
 const { exec } = require("child_process");
 const { handleListenEvents } = require("./utils/listen");
 //*const cron = require("node-cron");
-const config = JSON.parse(fs.readFileSync("./logins/fca-unofficial/config.json", "utf8"));
+const config = JSON.parse(fs.readFileSync("./logins/hut-chat-api/config.json", "utf8"));
 const proxyList = fs.readFileSync("./utils/prox.txt", "utf-8").split("\n").filter(Boolean);
 const fonts = require('./utils/fonts');
 function getRandomProxy() {
