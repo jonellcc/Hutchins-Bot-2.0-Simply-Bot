@@ -177,3 +177,7 @@ module.exports = {
 ### Summary
 
 This documentation provides an overview of how to implement and utilize commands in your bot. It highlights the event handling methods and action functionalities for responding to user interactions. Ensure to follow the structure and examples to integrate new commands effectively.
+
+
+
+Thank you and Dedicated Kaguya Teams and Cc Projects and Chatbot Community and Also You God Bless Hehe 
