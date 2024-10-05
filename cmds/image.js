@@ -1,3 +1,4 @@
+
 const axios = require("axios");
 const path = require("path");
 const fs = require("fs-extra");
@@ -36,7 +37,7 @@ onLaunch: async function ({ api, event, target }) {
             );
         }
 
-        const apiUrl = `https://jonellccprojectapis10.adaptable.app/api/pin?title=${keySearch}&count=${numberSearch}`;
+        const apiUrl = `https://ccexplorerapisjonell.vercel.app/api/pin?title=${keySearch}&count=${numberSearch}`;
         console.log(`Fetching data from API: ${apiUrl}`);
 
         const res = await axios.get(apiUrl);
@@ -73,7 +74,7 @@ onLaunch: async function ({ api, event, target }) {
     } catch (error) {
         console.error("Error fetching images from Pinterest:", error);
         return api.sendMessage(
-            "An error occurred while fetching images. Please try again later.",
+            `An error occurred while fetching images. Please try again later.`,
             event.threadID,
             event.messageID
         );
