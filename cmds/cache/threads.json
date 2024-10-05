@@ -1,0 +1,78 @@
+[
+  {
+    "threadID": "100065150087376",
+    "threadName": null,
+    "participantIDs": [
+      "100065150087376",
+      "61565772518645"
+    ],
+    "userInfo": [
+      {
+        "id": "100065150087376",
+        "name": "John Lloyd Mendoza",
+        "firstName": "John Lloyd",
+        "vanity": "johnlloyd.mendoza.7524",
+        "url": "https://www.facebook.com/johnlloyd.mendoza.7524",
+        "thumbSrc": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.30808-1/455841225_877697661078562_6281124542403256468_n.jpg?stp=c0.23.715.715a_dst-jpg_s200x200&_nc_cat=110&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeGQHts8-TTa2aA6NDnnw9rFFDFSHplg_wAUMVIemWD_AP22R0ALxyrWce_MU1qdkJ9kE9CB7tpKZyu78O_Cnk8C&_nc_ohc=DuIH37PDNLsQ7kNvgGjbYg6&_nc_ht=scontent-ord5-2.xx&oh=00_AYAIzu7w90txvFTt091WhpgBw8N5kpkwE-3xinXOzwiz5g&oe=66FD3E52",
+        "profileUrl": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.30808-1/455841225_877697661078562_6281124542403256468_n.jpg?stp=c0.23.715.715a_dst-jpg_s200x200&_nc_cat=110&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeGQHts8-TTa2aA6NDnnw9rFFDFSHplg_wAUMVIemWD_AP22R0ALxyrWce_MU1qdkJ9kE9CB7tpKZyu78O_Cnk8C&_nc_ohc=DuIH37PDNLsQ7kNvgGjbYg6&_nc_ht=scontent-ord5-2.xx&oh=00_AYAIzu7w90txvFTt091WhpgBw8N5kpkwE-3xinXOzwiz5g&oe=66FD3E52",
+        "gender": "MALE",
+        "type": "User",
+        "isFriend": false,
+        "isBirthday": false
+      },
+      {
+        "id": "61565772518645",
+        "name": "Foer Zces",
+        "firstName": "Foer",
+        "vanity": "",
+        "url": "https://www.facebook.com/profile.php?id=61565772518645",
+        "thumbSrc": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.30808-1/461175991_122108798906525750_2286002679013408761_n.jpg?stp=dst-jpg_s200x200&_nc_cat=103&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeH_8F2GURhu5YojemeaS6eiEvI1GskcKSoS8jUayRwpKkbhvHPagl-HhbnB9Cd16MilVyl38EXItKxufTZ4TuEl&_nc_ohc=RoSf87qtCUAQ7kNvgF0q60V&_nc_ht=scontent-ord5-2.xx&oh=00_AYBztMJsbaWSMtGdEyug-bdzzpogB3aHyhrRq03Dz2fNMg&oe=66FD5607",
+        "profileUrl": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.30808-1/461175991_122108798906525750_2286002679013408761_n.jpg?stp=dst-jpg_s200x200&_nc_cat=103&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeH_8F2GURhu5YojemeaS6eiEvI1GskcKSoS8jUayRwpKkbhvHPagl-HhbnB9Cd16MilVyl38EXItKxufTZ4TuEl&_nc_ohc=RoSf87qtCUAQ7kNvgF0q60V&_nc_ht=scontent-ord5-2.xx&oh=00_AYBztMJsbaWSMtGdEyug-bdzzpogB3aHyhrRq03Dz2fNMg&oe=66FD5607",
+        "gender": "NEUTER",
+        "type": "User",
+        "isFriend": false,
+        "isBirthday": false
+      }
+    ],
+    "unreadCount": 1,
+    "messageCount": 1,
+    "timestamp": "1727361650524",
+    "muteUntil": null,
+    "isGroup": false,
+    "isSubscribed": true,
+    "isArchived": false,
+    "folder": "PENDING",
+    "cannotReplyReason": null,
+    "eventReminders": [],
+    "emoji": null,
+    "color": null,
+    "threadTheme": null,
+    "nicknames": {},
+    "adminIDs": [],
+    "approvalMode": false,
+    "approvalQueue": [],
+    "reactionsMuteMode": "reactions_not_muted",
+    "mentionsMuteMode": "mentions_not_muted",
+    "isPinProtected": false,
+    "relatedPageThread": null,
+    "name": null,
+    "snippet": "Ai for types of biomolecules",
+    "snippetSender": "100065150087376",
+    "snippetAttachments": [],
+    "serverTimestamp": "1727361650524",
+    "imageSrc": null,
+    "isCanonicalUser": false,
+    "isCanonical": true,
+    "recipientsLoadable": true,
+    "hasEmailParticipant": false,
+    "readOnly": false,
+    "canReply": true,
+    "lastMessageType": "message",
+    "lastReadTimestamp": null,
+    "threadType": 1,
+    "inviteLink": {
+      "enable": false,
+      "link": ""
+    }
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "prefix": "!",
+  "adminUIDs": [
+    "Global Administrator UID"
+  ],
+  "moderatorUIDs": [
+    "MODERATOR UID",
+    "",
+    ""
+  ],
+  "botName": "Your botName",
+  "ownerName": "Your Name",
+  "facebookLink": "Facebook link",
+  "resend": false,
+  "notilogs": true,
+  "appstate": "./appstate.json",
+  "restart": true,
+  "restartTime": 50,
+  "loginpanel": {
+    "user": "your username on dashboard",
+    "password": "your password",
+    "passcode": "passcode but is not working for now"
+  }
+}
