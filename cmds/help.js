@@ -1,4 +1,4 @@
- const fs = require("fs");
+const fs = require("fs");
 const path = require("path");
 const adminConfig = JSON.parse(fs.readFileSync("admin.json", "utf8"));
 
@@ -23,9 +23,10 @@ module.exports = {
         const commandsPerPage = 10;
         const totalPages = Math.ceil(visibleCommandFiles.length / commandsPerPage);
 
-        let page = parseInt(target[0]);
 
-        
+        let page = target[0] ? parseInt(target[0]) : 1;
+
+
         if (!isNaN(page)) {
             if (page <= 0 || page > totalPages) {
                 return api.sendMessage(`Page not found. Please choose between 1 and ${totalPages}.`, event.threadID, event.messageID);
@@ -47,6 +48,7 @@ module.exports = {
             return api.shareContact(helpMessage, api.getCurrentUserID(), event.threadID);
         }
 
+
         if (target[0]) {
             const commandName = target[0];
             const commandFile = commandFiles.find(file => file === `${commandName}.js`);
@@ -67,7 +69,7 @@ module.exports = {
                     `│✧ Description: ${commandInfo.info || "Unknown"}\n` +
                     `│✧ Need Prefix: ${commandInfo.onPrefix !== undefined ? commandInfo.onPrefix : "Unknown"}\n` +
                     `╰───────────◊`;
-                return api.sendMessage(helpMessage, event.threadID, event.messageID);
+                return api.shareContact(helpMessage, api.getCurrentUserID(), event.threadID);
             } else {
                 return api.sendMessage(`Command "${commandName}" not found.`, event.threadID);
             }
