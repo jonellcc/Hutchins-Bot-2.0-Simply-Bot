@@ -1,4 +1,4 @@
-const fs = require("fs");
+ const fs = require("fs");
 const path = require("path");
 const adminConfig = JSON.parse(fs.readFileSync("admin.json", "utf8"));
 
@@ -14,6 +14,38 @@ module.exports = {
     onLaunch: async function ({ api, event, target }) {
         const cmdsPath = path.join(__dirname, '');
         const commandFiles = fs.readdirSync(cmdsPath).filter(file => file.endsWith('.js'));
+
+        const visibleCommandFiles = commandFiles.filter(file => {
+            const command = require(path.join(cmdsPath, file));
+            return !command.hide;
+        });
+
+        const commandsPerPage = 10;
+        const totalPages = Math.ceil(visibleCommandFiles.length / commandsPerPage);
+
+        let page = parseInt(target[0]);
+
+        
+        if (!isNaN(page)) {
+            if (page <= 0 || page > totalPages) {
+                return api.sendMessage(`Page not found. Please choose between 1 and ${totalPages}.`, event.threadID, event.messageID);
+            }
+
+            const startIndex = (page - 1) * commandsPerPage;
+            const endIndex = Math.min(startIndex + commandsPerPage, visibleCommandFiles.length);
+
+            let helpMessage = `╭─『 Commands List 』\n`;
+            const displayedCommands = visibleCommandFiles.slice(startIndex, endIndex);
+
+            displayedCommands.forEach(file => {
+                const commandInfo = require(path.join(cmdsPath, file));
+                helpMessage += `│✧ ${commandInfo.name || "Unknown"}\n`;
+            });
+
+            helpMessage += `╰───────────◊\n\n(Page ${page}/${totalPages})\nType ${adminConfig.prefix}help <page number> to see more commands.\n\nDev: ${adminConfig.ownerName}`;
+
+            return api.shareContact(helpMessage, api.getCurrentUserID(), event.threadID);
+        }
 
         if (target[0]) {
             const commandName = target[0];
@@ -35,39 +67,10 @@ module.exports = {
                     `│✧ Description: ${commandInfo.info || "Unknown"}\n` +
                     `│✧ Need Prefix: ${commandInfo.onPrefix !== undefined ? commandInfo.onPrefix : "Unknown"}\n` +
                     `╰───────────◊`;
-                return api.sendMessage(helpMessage, event.threadID, event.messageID).catch(error => console.error('Error sending message:', error));
+                return api.sendMessage(helpMessage, event.threadID, event.messageID);
             } else {
-                return api.sendMessage(`Command "${commandName}" not found.`, event.threadID).catch(error => console.error('Error sending message:', error));
+                return api.sendMessage(`Command "${commandName}" not found.`, event.threadID);
             }
         }
-
-        const visibleCommandFiles = commandFiles.filter(file => {
-            const command = require(path.join(cmdsPath, file));
-            return !command.hide;
-        });
-
-        const commandsPerPage = 10;
-        const totalPages = Math.ceil(visibleCommandFiles.length / commandsPerPage);
-        let page = parseInt(target[0]);
-
-        if (isNaN(page) || page <= 0 || page > totalPages) {
-            page = 1;
-        }
-
-        const startIndex = (page - 1) * commandsPerPage;
-        const endIndex = Math.min(startIndex + commandsPerPage, visibleCommandFiles.length);
-
-        let helpMessage = `╭─『 Commands List 』\n`;
-        const displayedCommands = visibleCommandFiles.slice(startIndex, endIndex);
-
-        displayedCommands.forEach(file => {
-            const commandInfo = require(path.join(cmdsPath, file));
-            helpMessage += `│✧ ${commandInfo.name || "Unknown"}\n`;
-        });
-
-        helpMessage += `╰───────────◊\n\n(Page ${page}/${totalPages})\nType ${adminConfig.prefix}help <page number> to see more commands.\n\nDev: ${adminConfig.ownerName}`;
-
-        api.shareContact(helpMessage, api.getCurrentUserID(), event.threadID) 
-        
     }
 };
