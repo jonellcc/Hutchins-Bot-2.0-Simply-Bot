@@ -16,7 +16,7 @@ module.exports = {
 
         if (target[0] === "install" && commandName) {
             const confirmationMessage = `⚠️ 𝗖𝗼𝗻𝗳𝗶𝗿𝗺 𝗠𝗼𝗱𝘂𝗹𝗲 𝗜𝗻𝘀𝘁𝗮𝗹𝗹\n${global.line}\nDo you want to install the command "${commandName}" with the provided code? React (👍) to confirm or (👎) to abort.`;
-            const sentMessage = await api.sendMessage(confirmationMessage, threadID);
+            const sentMessage = await api.sendMessage(confirmationMessage, threadID, event.messageID);
 
             global.client.callReact.push({
                 name: this.name,
@@ -30,7 +30,7 @@ module.exports = {
 
             if (fs.existsSync(filePath)) {
                 const confirmationMessage = `⚠️ 𝗖𝗼𝗻𝗳𝗶𝗿𝗺 𝗨𝗻𝗶𝗻𝘀𝘁𝗮𝗹𝗹\n${global.line}\nDo you want to uninstall the command "${commandName}"? React (👍) to confirm or (👎) to abort.`;
-                const sentMessage = await api.sendMessage(confirmationMessage, threadID);
+                const sentMessage = await api.sendMessage(confirmationMessage, threadID, event.messageID);
 
                 global.client.callReact.push({
                     name: this.name,
@@ -46,7 +46,7 @@ module.exports = {
 
             if (fs.existsSync(filePath)) {
                 const commandCode = fs.readFileSync(filePath, 'utf-8');
-                const shareMessage = await api.sendMessage("Extracting command code...", threadID);
+                const shareMessage = await api.sendMessage("Extracting command code...", threadID, event.messageID);
                 await api.editMessage(`${commandName}.js\n\n${commandCode}`, shareMessage.messageID, threadID);
             } else {
                 await api.sendMessage(`❌ Command ${commandName} does not exist.`, threadID);
@@ -75,14 +75,14 @@ module.exports = {
 
         if (reaction === '👍') {
             if (action === 'install') {
-                const checkMessage = await api.sendMessage(`🔍 Verifying command....`, threadID);
+                const checkMessage = await api.sendMessage(`🔍 Verifying command....`, threadID, event.messageID);
                 await new Promise(resolve => setTimeout(resolve, 5000));
 
                 try {
                     new Function(commandCode); 
                     const filePath = `./cmds/${commandName}.js`;
                     fs.writeFileSync(filePath, commandCode);
-                    await api.editMessage(`✅ 𝗠𝗼𝗱𝘂𝗹𝗲 𝗜𝗻𝘀𝘁𝗮𝗹𝗹𝗲𝗱\n${global.line}\nCommand "${commandName}" has been installed successfully.`, checkMessage.messageID, threadID);
+                    await api.editMessage(`✅ 𝗠𝗼𝗱𝘂𝗹𝗲 𝗜𝗻𝘀𝘁𝗮𝗹𝗹𝗲𝗱\n${global.line}\nCommand "${commandName}" has been installed successfully.`, checkMessage.messageID, threadID, event.messageID);
                     global.cc.reload[commandName];
                 } catch (error) {
                     await api.editMessage(`❌ Failed to install command. Error: ${error.message}`, checkMessage.messageID, threadID);
@@ -92,7 +92,7 @@ module.exports = {
 
                 if (fs.existsSync(filePath)) {
                     fs.unlinkSync(filePath);
-                    await api.sendMessage(`✅ 𝗠𝗼𝗱𝘂𝗹𝗲 𝗨𝗻𝗶𝗻𝘀𝘁𝗮𝗹𝗹𝗲𝗱\n${global.line}\nCommand "${commandName}" has been uninstalled successfully.`, threadID);
+                    await api.sendMessage(`✅ 𝗠𝗼𝗱𝘂𝗹𝗲 𝗨𝗻𝗶𝗻𝘀𝘁𝗮𝗹𝗹𝗲𝗱\n${global.line}\nCommand "${commandName}" has been uninstalled successfully.`, threadID, event.messageID));
                 } else {
                     await api.sendMessage(`❌ Command "${commandName}" does not exist.`, threadID);
                 }
