@@ -57,7 +57,9 @@ module.exports = {
                     fs.writeFileSync(filePath, commandFileContent);
                     global.cc.reload[commandName];
 
-                    await api.sendMessage(`✅ Successfully changed the "onPrefix" state of "${commandName}" to ${newState}.`, threadID);
+                    const bold = global.fonts.bold("✅ Successfull onPrefix Chnaged");
+
+                    await api.sendMessage(`${bold}\n${global.line}\nSuccessfully changed the "onPrefix" state of "${commandName}" to ${newState}.`, threadID);
                 } else {
                     await api.sendMessage(`❌ Command "${commandName}" does not exist.`, threadID);
                 }
