@@ -1,5 +1,5 @@
 module.exports = {
-  name: "notidev",
+  name: "noti",
   usedby: 2,
   onPrefix: true,
   dev: "Jonell Magallanes",
